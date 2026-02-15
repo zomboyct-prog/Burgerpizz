@@ -3,335 +3,487 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BurguerPizz | Carne Artesanal Sabor Pizza</title>
+    <title>Burgerpizz - Info Oficial</title>
+    <!-- Iconos para botones -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* --- ESTILOS GENERALES --- */
-        body { 
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #121212; 
-            color: #fff; 
-            scroll-behavior: smooth; /* Desplazamiento suave */
-        }
-        
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto+Condensed:wght@400;700&display=swap');
+
         :root {
-            --pizza-red: #D32F2F; 
-            --cheese-yellow: #FBC02D;
+            --brand-red: #d32f2f;
+            --brand-yellow: #fbc02d;
             --dark-bg: #1a1a1a;
+            --card-bg: #2a2a2a;
+            --light-text: #f5f5f5;
         }
 
-        h1, h2, h3, h4 { margin: 0; font-weight: 700; }
-        a { text-decoration: none; }
-
-        /* --- NAVEGACIÓN --- */
-        nav { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 15px 50px; 
-            background-color: #000;
-            border-bottom: 3px solid var(--pizza-red);
-            position: sticky; /* Menú fijo arriba */
-            top: 0;
-            z-index: 1000;
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            scroll-behavior: smooth;
         }
-        
-        .logo { display: flex; align-items: center; }
-        .logo img { height: 70px; object-fit: contain; } 
 
-        .nav-links a { margin-left: 20px; color: #ccc; transition: 0.3s; font-weight: bold; cursor: pointer;}
-        .nav-links a:hover { color: var(--pizza-red); }
-
-        /* --- PORTADA (HERO) --- */
-        header { 
-            height: 85vh; 
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1502&q=80');
-            background-size: cover; 
+        /* --- HEADER HERO --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover;
             background-position: center;
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center;
-            padding: 0 20px;
-        }
-        header h1 { 
-            font-size: 4rem; 
-            text-transform: uppercase; 
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px #000;
-            line-height: 1.1;
-        }
-        header p { font-size: 1.3rem; max-width: 700px; margin-bottom: 30px; color: #ddd; }
-        
-        .cta-btn { 
-            padding: 15px 40px; 
-            background-color: var(--pizza-red); 
-            color: white; 
-            font-size: 1.2rem; 
-            border-radius: 5px; 
-            font-weight: bold; 
-            transition: transform 0.2s;
-            cursor: pointer;
-            border: none;
-        }
-        .cta-btn:hover { transform: scale(1.05); background-color: #b71c1c; }
-
-        /* --- CARACTERÍSTICAS --- */
-        .features {
-            padding: 50px 20px;
-            background-color: #1f1f1f;
-            text-align: center;
+            height: 45vh; 
             display: flex;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-        .feature-item { max-width: 250px; }
-        .feature-icon { font-size: 2.5rem; margin-bottom: 10px; display: block; }
-
-        /* --- PRODUCTOS --- */
-        .products { padding: 80px 20px; text-align: center; }
-        .section-title { 
-            font-size: 2.5rem; 
-            margin-bottom: 50px; 
-            color: var(--pizza-red); 
-            display: inline-block; 
-            border-bottom: 2px solid #fff;
+            text-align: center;
+            border-bottom: 4px solid var(--brand-red);
+            position: relative;
+            padding: 20px;
         }
 
-        .grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-        
-        .card { 
-            background: #252525; 
-            width: 320px; 
-            border-radius: 10px; 
-            overflow: hidden; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
+        .logo-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid white;
+            object-fit: cover;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            color: white;
+            text-shadow: 2px 2px 0 var(--brand-red);
+        }
+
+        .tagline {
+            color: var(--brand-yellow);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 5px;
+            max-width: 90%;
+        }
+
+        .hero-btn {
+            margin-top: 15px;
+            background-color: var(--brand-red);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* --- CONTENIDO PRINCIPAL --- */
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* TARJETAS DE INFORMACIÓN */
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            border-left: 4px solid var(--brand-yellow);
+        }
+
+        .card-title {
+            font-family: 'Oswald', sans-serif;
+            color: white;
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+        }
+
+        .card-title i {
+            color: var(--brand-red);
+        }
+
+        /* ESTILOS DE LA NUEVA TABLA NUTRICIONAL (Adaptada a modo oscuro) */
+        .nutrition-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .nutrition-table th {
+            background-color: rgba(0,0,0,0.3);
+            color: var(--brand-yellow);
+            padding: 8px 4px;
             text-align: left;
+            border-bottom: 2px solid var(--brand-red);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            vertical-align: bottom;
+        }
+
+        .nutrition-table td {
+            border-bottom: 1px solid #444;
+            padding: 8px 4px;
+            text-align: left;
+            font-weight: 400;
+        }
+
+        /* Fila Zebra tenue */
+        .nutrition-table tr:nth-child(even) {
+            background-color: rgba(255,255,255,0.03);
+        }
+        
+        /* PRODUCTOS (Estilo Grid Adaptado) */
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .product-item {
+            background: #222;
+            border-radius: 10px;
+            overflow: hidden;
             border: 1px solid #333;
-            transition: 0.3s;
         }
-        .card:hover { transform: translateY(-5px); border-color: var(--pizza-red); }
         
-        .card-img { height: 250px; background-color: #444; background-size: cover; background-position: center; }
-        
-        /* Imágenes de Drive */
-        .img-single { background-image: url('https://drive.google.com/thumbnail?id=1WTUavODMuiNLzIZ1YI7WRAJA6IC2to8W&sz=w1000'); }
-        .img-pack { background-image: url('https://drive.google.com/thumbnail?id=16Sn8Z6u6jLe2kgC-eqcpA_yF4qHLlaR7&sz=w1000'); }
+        .product-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
 
-        .card-body { padding: 20px; }
-        .card h3 { font-size: 1.4rem; margin-bottom: 10px; color: #fff; }
-        .card p { font-size: 0.9rem; color: #bbb; line-height: 1.4; margin-bottom: 15px; }
-        
-        .price { 
-            font-size: 1.6rem; 
-            color: var(--cheese-yellow); 
-            font-weight: bold; 
-            display: block; 
-            margin-bottom: 15px; 
+        .product-details {
+            padding: 15px;
         }
-        
-        /* Botón funcional de compra */
-        .buy-btn { 
-            display: block; 
-            width: 100%; 
-            padding: 12px; 
-            background: white; 
-            color: black; 
-            text-align: center; 
-            font-weight: bold; 
-            border-radius: 5px; 
-            transition: 0.3s;
-            cursor: pointer;
+
+        .price-tag {
+            color: var(--brand-yellow);
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: block;
+            margin: 5px 0;
+        }
+
+        /* TABLA DE PRECIOS MAYOREO */
+        .wholesale-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 10px;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+        .wholesale-row {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 5px 0;
+        }
+        .wholesale-row:last-child { border-bottom: none; }
+        .discount-price { color: #4caf50; font-weight: bold; }
+
+        /* LISTA DE USOS (Negocios, Fiestas, etc) */
+        .use-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+        .use-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .use-item strong { color: var(--brand-yellow); display: block; font-size: 1.1rem; margin-bottom: 5px;}
+        .use-item p { margin: 0; font-size: 0.9rem; color: #aaa; }
+
+        /* BOTONES DE ACCIÓN */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
             border: none;
-            font-size: 1rem;
+            border-radius: 8px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.1s;
+            box-sizing: border-box;
         }
-        .buy-btn:hover { background: var(--pizza-red); color: white; }
 
-        /* Sellos */
-        .sellos-container { display: flex; gap: 5px; margin-top: 15px; justify-content: flex-start; }
-        .sello { 
-            background: black; 
-            color: white; 
-            border: 1px solid white; 
-            font-size: 0.55rem; 
-            padding: 2px; 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            width: 48px; 
-            height: 48px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
+        .btn-primary { background-color: var(--brand-red); color: white; }
+        .btn-whatsapp { background-color: #25D366; color: white; }
+        .btn-buy { background-color: white; color: black; font-weight: bold; font-size: 1rem; padding: 10px;}
+        
+        .btn:active { transform: scale(0.98); }
+
+        /* RECETAS */
+        .recipe-mini {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            background: #333;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .recipe-icon {
+            font-size: 1.5rem;
+            background: var(--brand-yellow);
+            color: black;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* SELLO MINI */
+        .seal-row {
+            display: flex;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .seal-mini {
+            font-size: 8px;
+            background: black;
+            color: white;
+            border: 1px solid white;
+            padding: 2px;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
             line-height: 1;
+            font-weight: bold;
         }
-        
-        /* Equipo */
-        .team-avatar { width: 80px; height: 80px; background: #333; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 2rem; border: 2px solid var(--pizza-red); }
 
-        /* Footer */
-        footer { 
-            background: #000; 
-            padding: 40px; 
-            text-align: center; 
-            color: #666; 
-            border-top: 1px solid #333;
+        footer {
+            text-align: center;
+            padding: 30px;
             font-size: 0.8rem;
+            color: #777;
+            background-color: #111;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">
-            <img src="https://drive.google.com/thumbnail?id=14DSQfqbim_3U-55MbCmbH5QCBnW3GVNX&sz=w1000" alt="Logo BurguerPizz">
-        </div>
-        
-        <div class="nav-links">
-            <a href="#productos">Productos</a>
-            <a href="#nosotros">Nosotros</a>
-            <a href="#equipo">Equipo</a>
-        </div>
-    </nav>
-
-    <header>
-        <h1>BurguerPizz</h1>
-        <p>Carne artesanal de cerdo con el auténtico sabor a pizza: Mozzarella, Parmesano y Tocino.</p>
-        <button onclick="irAProductos()" class="cta-btn">Ver Catálogo</button>
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <img src="image_dadfde.jpeg" alt="Burgerpizz Logo" class="logo-circle">
+        <h1>Burgerpizz</h1>
+        <!-- Slogan Actualizado -->
+        <div class="tagline">¡El sabor de Italia en tu carne de hamburguesa!</div>
+        <a href="#catalogo" class="hero-btn">Ver Precios</a>
     </header>
 
-    <section class="features">
-        <div class="feature-item">
-            <span class="feature-icon">🥩</span>
-            <h3>100% Cerdo & Tocino</h3>
-            <p>Mezcla jugosa de carne molida de cerdo y tocino premium.</p>
-        </div>
-        <div class="feature-item">
-            <span class="feature-icon">🧀</span>
-            <h3>Quesos Reales</h3>
-            <p>Con trozos reales de queso mozzarella y parmesano.</p>
-        </div>
-        <div class="feature-item">
-            <span class="feature-icon">❄️</span>
-            <h3>Empacado al Vacío</h3>
-            <p>Conservación perfecta a -18°C sin perder frescura.</p>
-        </div>
-    </section>
-
-    <section id="productos" class="products">
-        <h2 class="section-title">Nuestros Productos</h2>
+    <div class="container">
         
-        <div class="grid">
+        <!-- BIENVENIDA / QUÉ ES -->
+        <div class="card" style="border-left-color: var(--brand-red);">
+            <h2 class="card-title"><i data-lucide="info"></i> ¿Qué estás comiendo?</h2>
+            <p>Gracias por elegir Burgerpizz. Disfruta de una fusión única: 152g de carne selecta de cerdo mezclada con los ingredientes auténticos de una pizza (mozzarella, tocino y especias italianas).</p>
+        </div>
+
+        <!-- NUEVA SECCIÓN: VERSATILIDAD (USOS) -->
+        <div class="card" style="border-left-color: #25D366;">
+            <h2 class="card-title"><i data-lucide="users"></i> ¿Para qué ocasión?</h2>
             
-            <div class="card">
-                <div class="card-img img-single"></div>
-                <div class="card-body">
-                    <h3>Unidad Individual (152g)</h3>
-                    <p>Carne molida sabor pizza lista para cocinar. Cruda y congelada al vacío.</p>
-                    <span class="price">$35.00 MXN</span>
-                    
-                    <button class="buy-btn" onclick="agregarAlCarrito('BurguerPizz Individual', 35)">Agregar al Carrito</button>
-                    
-                    <div class="sellos-container">
-                        <div class="sello">EXCESO CALORÍAS</div>
-                        <div class="sello">EXCESO SODIO</div>
-                        <div class="sello">EXCESO GRASAS SAT.</div>
+            <div class="use-item">
+                <strong>🏪 Negocios y Restaurantes</strong>
+                <p>Ofrece algo diferente en tu menú. Una opción innovadora que atraerá a clientes buscando sabores nuevos.</p>
+            </div>
+            
+            <div class="use-item">
+                <strong>🎉 Reuniones y Fiestas</strong>
+                <p>Sorprende a tus invitados. Olvídate de la hamburguesa tradicional y dales una experiencia gourmet fácil de preparar.</p>
+            </div>
+
+            <div class="use-item">
+                <strong>📅 Comida Semanal</strong>
+                <p>Práctica y deliciosa. Tenlas siempre en el congelador para resolver la comida del día a día en minutos.</p>
+            </div>
+        </div>
+
+        <!-- INFORMACIÓN NUTRICIONAL COMPLETA (Sin Código de Barras) -->
+        <div class="card">
+            <h2 class="card-title"><i data-lucide="activity"></i> Info Nutricional</h2>
+            
+            <div class="info-col-tables" style="overflow-x: auto;">
+                
+                <table class="nutrition-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 30%;">Concepto</th>
+                            <th style="width: 35%;">Por porción<br>(152 g)</th>
+                            <th style="width: 35%;">Por 100 g<br>de producto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Contenido Energético</td>
+                            <td>433.6 kcal / 1,814.2 kJ</td>
+                            <td>285.3 kcal / 1,193.7 kJ</td>
+                        </tr>
+                        <tr>
+                            <td>Proteínas</td>
+                            <td>23.9 g</td>
+                            <td>15.7 g</td>
+                        </tr>
+                        <tr>
+                            <td>Grasas Sat.</td>
+                            <td>13.2 g</td>
+                            <td>8.7 g</td>
+                        </tr>
+                        <tr>
+                            <td>Grasas Trans</td>
+                            <td>0 g</td>
+                            <td>0 g</td>
+                        </tr>
+                        <tr>
+                            <td>Hidratos de Carbono Disp.</td>
+                            <td>5.4 g</td>
+                            <td>3.5 g</td>
+                        </tr>
+                        <tr>
+                            <td>Azúcares Totales</td>
+                            <td>1.7 g</td>
+                            <td>1.1 g</td>
+                        </tr>
+                        <tr>
+                            <td>Fibra Dietética</td>
+                            <td>1.1 g</td>
+                            <td>0.7 g</td>
+                        </tr>
+                        <tr>
+                            <td>Sodio</td>
+                            <td>953.4 mg</td>
+                            <td>600 mg</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+
+        <!-- CATÁLOGO DE PRODUCTOS (Precios Actualizados) -->
+        <div id="catalogo" class="card" style="border-left-color: white;">
+            <h2 class="card-title"><i data-lucide="shopping-bag"></i> Catálogo</h2>
+            
+            <div class="products-grid">
+                
+                <!-- Producto Único -->
+                <div class="product-item">
+                    <div class="product-img" style="background-image: url('https://drive.google.com/thumbnail?id=1WTUavODMuiNLzIZ1YI7WRAJA6IC2to8W&sz=w1000');"></div>
+                    <div class="product-details">
+                        <h3 style="margin:0 0 5px 0; color:white;">Unidad Individual (152g)</h3>
+                        <p style="font-size:0.85rem; color:#bbb; margin:0;">Lista para cocinar. Cruda y congelada al vacío.</p>
+                        
+                        <!-- Precio Base -->
+                        <span class="price-tag">$40.00 MXN</span>
+                        
+                        <!-- Tabla de Mayoreo -->
+                        <div class="wholesale-box">
+                            <div style="text-align:center; margin-bottom:5px; color:#fff; font-weight:bold;">🔥 PRECIOS DE MAYOREO 🔥</div>
+                            <div class="wholesale-row">
+                                <span>A partir de 20 piezas:</span>
+                                <span class="discount-price">$38.00 c/u</span>
+                            </div>
+                            <div class="wholesale-row">
+                                <span>Más de 50 piezas:</span>
+                                <span class="discount-price">$35.00 c/u</span>
+                            </div>
+                        </div>
+
+                        <div class="seal-row">
+                            <div class="seal-mini">EXCESO CALORÍAS</div>
+                            <div class="seal-mini">EXCESO SODIO</div>
+                            <div class="seal-mini">EXCESO GRASAS</div>
+                        </div>
+
+                        <a href="https://wa.me/525611054715?text=Hola,%20me%20interesa%20comprar%20Burgerpizz%20Individual" class="btn btn-buy" style="margin-top:15px; text-align: center; display: block; text-decoration: none;">
+                            Hacer Pedido
+                        </a>
                     </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- IDEAS DE PREPARACIÓN -->
+        <div class="card">
+            <h2 class="card-title"><i data-lucide="chef-hat"></i> Ideas para cocinar</h2>
+            
+            <div class="recipe-mini">
+                <div class="recipe-icon">🥬</div>
+                <div>
+                    <strong>La Clásica (Recomendada)</strong>
+                    <div style="font-size: 0.85rem; color: #bbb;">Sencilla y deliciosa: solo pan, lechuga fresca, tomate, mayonesa y tu carne Burgerpizz.</div>
                 </div>
             </div>
 
-            <div class="card">
-                <div class="card-img img-pack"></div>
-                <div class="card-body">
-                    <h3>Paquete Familiar (8 pzas)</h3>
-                    <p>Bolsa con 8 unidades de 152g (aprox. 1.2kg). Empaque zipper con porciones individuales.</p>
-                    <span class="price">$280.00 MXN</span>
-                    
-                    <button class="buy-btn" onclick="agregarAlCarrito('Paquete Familiar (8 pzas)', 280)">Agregar al Carrito</button>
-
-                     <div class="sellos-container">
-                        <div class="sello">EXCESO CALORÍAS</div>
-                        <div class="sello">EXCESO SODIO</div>
-                        <div class="sello">EXCESO GRASAS SAT.</div>
-                    </div>
+            <div class="recipe-mini">
+                <div class="recipe-icon">🧀</div>
+                <div>
+                    <strong>Pizzaburger Melt</strong>
+                    <div style="font-size: 0.85rem; color: #bbb;">Gratinada con queso manchego extra y pepperoni encima.</div>
                 </div>
             </div>
 
+            <div class="recipe-mini">
+                <div class="recipe-icon">🍍</div>
+                <div>
+                    <strong>Estilo Hawaiana</strong>
+                    <div style="font-size: 0.85rem; color: #bbb;">Para los aventureros: agrega una rebanada de piña asada y jamón. ¡Combina perfecto!</div>
+                </div>
+            </div>
         </div>
-    </section>
 
-    <section id="nosotros" style="background-color: #1a1a1a; padding: 60px 20px; text-align: center;">
-        <h2 class="section-title">Nuestra Filosofía</h2>
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 30px;">
-            <div style="background: #000; padding: 30px; border-left: 4px solid #D32F2F; width: 300px; text-align: left; border-radius: 5px;">
-                <h3 style="color: #D32F2F; margin-bottom: 15px;">Misión</h3>
-                <p style="color: #ccc; font-size: 0.9rem; line-height: 1.5;">Desarrollar productos cárnicos innovadores y de alta calidad que integren técnicas efectivas de conservación.</p>
-            </div>
-            <div style="background: #000; padding: 30px; border-left: 4px solid #FBC02D; width: 300px; text-align: left; border-radius: 5px;">
-                <h3 style="color: #FBC02D; margin-bottom: 15px;">Visión</h3>
-                <p style="color: #ccc; font-size: 0.9rem; line-height: 1.5;">Posicionarnos como una marca líder e innovadora en el mercado alimenticio, reconocida por revolucionar el consumo.</p>
-            </div>
-        </div>
-    </section>
+        <!-- CONTACTO FINAL -->
+        <a href="https://wa.me/525611054715" class="btn btn-whatsapp">
+            <i data-lucide="message-circle" style="vertical-align: middle; margin-right: 5px;"></i>
+            Pedir por WhatsApp
+        </a>
 
-    <section id="equipo" style="padding: 60px 20px; text-align: center; background-color: #121212;">
-        <h2 class="section-title" style="margin-bottom: 40px;">Nuestro Equipo</h2>
-        <div class="grid" style="gap: 40px;">
-            <div style="text-align: center; width: 200px;">
-                <div class="team-avatar">👩🏻‍🍳</div>
-                <h4 style="margin: 5px 0; color: white;">Andrea Cruz</h4>
-                <p style="color: #666; font-size: 0.8rem;">Dirección General</p>
-            </div>
-            <div style="text-align: center; width: 200px;">
-                <div class="team-avatar">📊</div>
-                <h4 style="margin: 5px 0; color: white;">Juan Ángel López</h4>
-                <p style="color: #666; font-size: 0.8rem;">Finanzas & Legal</p>
-            </div>
-            <div style="text-align: center; width: 200px;">
-                <div class="team-avatar">🧪</div>
-                <h4 style="margin: 5px 0; color: white;">Nayeli Olmedo</h4>
-                <p style="color: #666; font-size: 0.8rem;">Jefa de Formulación</p>
-            </div>
-            <div style="text-align: center; width: 200px;">
-                <div class="team-avatar">🚀</div>
-                <h4 style="margin: 5px 0; color: white;">Gabriel Montero</h4>
-                <p style="color: #666; font-size: 0.8rem;">Marketing & Ventas</p>
-            </div>
-            <div style="text-align: center; width: 200px;">
-                <div class="team-avatar">🎨</div>
-                <h4 style="margin: 5px 0; color: white;">Ángel Vázquez</h4>
-                <p style="color: #666; font-size: 0.8rem;">Diseño & Formulación</p>
-            </div>
-            <div style="text-align: center; width: 200px;">
-                <div class="team-avatar">⚙️</div>
-                <h4 style="margin: 5px 0; color: white;">Erick Santos</h4>
-                <p style="color: #666; font-size: 0.8rem;">Producción & Envasado</p>
-            </div>
-        </div>
-    </section>
+        <a href="https://instagram.com" class="btn btn-primary">
+            <i data-lucide="instagram" style="vertical-align: middle; margin-right: 5px;"></i>
+            Instagram Oficial
+        </a>
+
+    </div>
 
     <footer>
-        <p>© 2025 BurgerPizz - Proyecto Académico</p>
-        <p>Ingredientes: Carne de cerdo, tocino, quesos, pasta de tomate, especias.</p>
-        <p>Manténgase congelado a -18°C | Vida útil: 4 meses | Lote: 241001-A</p>
+        <p>&copy; 2026 Burgerpizz - Todos los derechos reservados.</p>
+        <p style="color:#555; font-size: 0.75rem;">Misión: Desarrollar productos cárnicos innovadores.<br>
+        Visión: Revolucionar el consumo alimenticio.</p>
     </footer>
 
+    <!-- Script para renderizar iconos -->
     <script>
-        // Función para mover la pantalla al catálogo
-        function irAProductos() {
-            document.getElementById('productos').scrollIntoView();
-        }
-
-        // Función para simular la compra
-        function agregarAlCarrito(producto, precio) {
-            alert("✅ ¡PRODUCTO AGREGADO!\n\nHas seleccionado: " + producto + "\nPrecio: $" + precio + " MXN\n\n(Esta es una simulación de compra para fines académicos).");
-        }
+        lucide.createIcons();
     </script>
-
 </body>
 </html>
-
-
